@@ -1,3 +1,12 @@
+<?php
+include __DIR__ . "/function.php";
+session_start();
+$_SESSION['pass'] = $_GET['pass'];
+if (empty($_SESSION['pass'])) {
+    header("Location:./index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,15 +23,9 @@
     <div class="container-fluid m-4">
         <div class="row">
             <div class="col">
-                <form action="./pwpage.php" method="GET">
-                    <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                        <div class="col-2">
-                            <input type="number" class="form-control" name="pass" id="inputPassword">
-                            <button class="btn btn-primary my-3" type="submit">submit</button>
-                        </div>
-                    </div>
-                </form>
+                <p>
+                    <?php echo password($_GET['pass']); ?>
+                </p>
             </div>
         </div>
     </div>
