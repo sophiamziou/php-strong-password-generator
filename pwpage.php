@@ -26,6 +26,13 @@ if (empty($_SESSION['pass'])) {
                 <p>
                     <?php echo password($_GET['pass']); ?>
                 </p>
+                <p>
+                    password length:
+                    <?php echo strlen(password($_GET['pass'])); ?>
+                </p>
+                <form action="./index.php">
+                    <button class="btn btn-primary">Torna indietro</button>
+                </form>
             </div>
         </div>
     </div>
