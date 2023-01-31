@@ -1,6 +1,13 @@
 <?php
-phpinfo()
-    ?>
+function password($number)
+{
+    $pw = '';
+    for ($i = 0; $i < $number; $i++) {
+        $pw .= chr(rand(32, 126));
+    }
+    return $pw;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +22,26 @@ phpinfo()
 </head>
 
 <body>
-
+    <div class="container-fluid m-4">
+        <div class="row">
+            <div class="col">
+                <form action="./index.php" method="GET">
+                    <div class="mb-3 row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-2">
+                            <input type="number" class="form-control" name="pass" id="inputPassword">
+                            <button class="btn btn-primary my-3" type="submit">submit</button>
+                        </div>
+                        <div class="col-5">
+                            <span>
+                                <?php echo password($_GET['pass']) ?>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
